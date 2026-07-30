@@ -1,0 +1,89 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "J-Link (SWO via VCP)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "STM32F103C8",
+            "interface": "swd",
+            "runToEntryPoint": "main",
+            "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
+            "serverArgs": [
+                "-strict",
+                "-timeout",
+                "0"
+            ],
+            "swoConfig": {
+                "enabled": false
+            },
+            "rttConfig": {
+                "enabled": true,
+                "address": "auto",
+                "decoders": [
+                    {
+                        "port": 0,
+                        "type": "console",
+                        "label": "RTT Output",
+                        "showOnStartup": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "OpenOCD",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
+            "servertype": "openocd",
+            "device": "STM32F030F4P6",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f0x.cfg"
+            ],
+            "runToEntryPoint": "main",
+            "gdbTarget": "localhost:3333",
+            "preLaunchCommands": [
+                "monitor arm semihosting enable"
+            ],
+            "swoConfig": {
+                "enabled": false
+            }
+        },
+        {
+            "name": "st-util",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/build/Debug/${workspaceFolderBasename}.elf",
+            "servertype": "stutil",
+            "device": "STM32F030F4P6",
+            "runToEntryPoint": "main",
+            "swoConfig": {
+                "enabled": false
+            }
+        },
+        {
+            "name": "ST-Link GDB Server",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/build/Release/${workspaceFolderBasename}.elf",
+            "servertype": "stlink",
+            "device": "STM32F030F4P6",
+            "interface": "swd",
+            "runToEntryPoint": "main",
+            "serverArgs": [
+                "-l",
+                "1",
+                "-m",
+                "0",
+                "-s",
+                "-k"
+            ],
+            "swoConfig": {
+                "enabled": false
+            },
+            "svdFile": "/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.2.200.202506131328/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F0x0.svd"
+        }
+    ]
+}
