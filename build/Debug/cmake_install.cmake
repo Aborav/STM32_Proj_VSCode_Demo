@@ -1,4 +1,4 @@
-# Install script for directory: /home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test
+# Install script for directory: /home/aborav/Workspaces/STM32/f103_jlink_test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
+  include("/home/aborav/Workspaces/STM32/f103_jlink_test/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test/build/Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/aborav/Workspaces/STM32/f103_jlink_test/build/Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

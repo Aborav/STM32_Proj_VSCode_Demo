@@ -62,7 +62,7 @@ rule C_COMPILER__STM32_Drivers_unscanned_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test -B/home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test/build/Debug
+  command = /usr/bin/cmake --regenerate-during-build -S/home/aborav/Workspaces/STM32/f103_jlink_test -B/home/aborav/Workspaces/STM32/f103_jlink_test/build/Debug
   description = Re-running CMake...
   generator = 1
 

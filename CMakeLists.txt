@@ -37,6 +37,20 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
+#######################USER#################################
+# For clang-tidy
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -isystem /usr/include/newlib")
+
+# Additional checks
+add_compile_options(
+    -Wall
+    -Wextra
+    -Wswitch              # Предупреждение, если не все case обработаны
+    -Wswitch-default      # Предупреждение, если нет default
+    -Wimplicit-fallthrough # Предупреждение, если забыт break
+    -Wswitch-enum         # Предупреждение, если не все enum обработаны (опционально)
+)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -46,6 +60,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/RTT/RTT/SEGGER_RTT.c
     ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/RTT/RTT/SEGGER_RTT_printf.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/NumToStr/nts.c
     # Add user sources here
 )
 
@@ -53,7 +68,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/RTT/RTT
     ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/RTT/Config
-    
+    ${CMAKE_CURRENT_SOURCE_DIR}/UsrLibs/NumToStr
     # Add user defined include paths
 )
 

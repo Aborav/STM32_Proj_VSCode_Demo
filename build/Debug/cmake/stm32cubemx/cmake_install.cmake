@@ -1,4 +1,4 @@
-# Install script for directory: /home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test/cmake/stm32cubemx
+# Install script for directory: /home/aborav/Workspaces/STM32/f103_jlink_test/cmake/stm32cubemx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Linux-7.0.0-28-generic")
+set(CMAKE_HOST_SYSTEM "Linux-6.17.0-35-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "7.0.0-28-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "6.17.0-35-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/aborav/Workspaces/STM32_Workspace/Test/f103_jlink_test/cmake/gcc-arm-none-eabi.cmake")
+include("/home/aborav/Workspaces/STM32/f103_jlink_test/cmake/gcc-arm-none-eabi.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")

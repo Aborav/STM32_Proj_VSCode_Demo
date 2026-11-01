@@ -8,13 +8,20 @@
     "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
     "cortex-debug.armToolchainPath": "/usr/bin",
     "cortex-debug.openocdPath": "/usr/bin/openocd",
-    "cortex-debug.stlinkPath": "/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.2.200.202505060755/tools/bin/ST-LINK_gdbserver",
-    "cortex-debug.stm32cubeprogrammer": "/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.2.200.202503041107/tools/bin",
+    "cortex-debug.stlinkPath": "/usr/bin/ST-LINK_gdbserver",
+    "cortex-debug.stm32cubeprogrammer": "/usr/bin/STM32_Programmer_CLI",
+    "cortex-debug.JLinkGDBServerPath": "/usr/bin/JLinkGDBServer",
 
     "clangd.path": "/usr/bin/clangd",
     "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}/build/Debug",
+        "--compile-commands-dir=${workspaceFolder}/build/${command:cmake.buildType}",
         "--query-driver=/usr/bin/arm-none-eabi-gcc",
         "--fallback-style=LLVM"
-    ]
+    ],
+    // shortcuts for fast changes
+    "executable": "${workspaceFolder}/build/${command:cmake.buildType}/${workspaceFolderBasename}.elf",
+    "device": "STM32F103C8",
+    "svdFile": "/opt/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.productdb.debug_2.2.200.202506131328/resources/cmsis/STMicroelectronics_CMSIS_SVD/STM32F103.svd"
+    // STM32F030 -> STM32F0x0.svd
+    // STM32F103 -> STM32F103.svd
 }

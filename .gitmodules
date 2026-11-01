@@ -1,3 +1,6 @@
 [submodule "UsrLibs/RTT"]
 	path = UsrLibs/RTT
 	url = https://github.com/SEGGERMicro/RTT.git
+[submodule "UsrLibs/NumToStr"]
+	path = UsrLibs/NumToStr
+	url = git@github.com:Aborav/NumToStr.git

@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // CLANG-TIDY
+        {
+            "label": "clang-tidy (whole project)",
+            "type": "shell",
+            "command": "clang-tidy",
+            "args": [
+                "-p",
+                "${workspaceFolder}/build/Debug/",
+                "${workspaceFolder}/Core/Src/main.c"
+                //"${workspaceFolder}/UsrLibs/../*.c"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        // JLINK RESET MCU
+        {
+            "label": "JLink reset mcu",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "echo device ${config:device} > flash.jlink && echo si SWD >> flash.jlink && echo speed 4000 >> flash.jlink && echo r >> flash.jlink && echo h >> flash.jlink && echo q >> flash.jlink && JLinkExe -nogui 1 -CommandFile flash.jlink 1>/dev/null && echo SUCCESS || echo FAIL"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "group": "build"
+        },
+        // JLINK ERASE MCU
+        {
+            "label": "JLink erase mcu",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "echo device ${config:device} > flash.jlink && echo si SWD >> flash.jlink && echo speed 4000 >> flash.jlink && echo r >> flash.jlink && echo h >> flash.jlink && echo erase >>flash.jlink && echo q >> flash.jlink && JLinkExe -nogui 1 -CommandFile flash.jlink 1>/dev/null && echo SUCCESS || echo FAIL"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "group": "build"
+        },
+        // JLINK FLASH MCU
+        {
+            "label": "JLink flash mcu",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "echo device ${config:device} > flash.jlink && echo si SWD >> flash.jlink && echo speed 4000 >> flash.jlink && echo r >> flash.jlink && echo h >> flash.jlink && echo loadfile build/${command:cmake.buildType}/${workspaceFolderBasename}.elf >> flash.jlink && echo r >> flash.jlink && echo q >> flash.jlink && JLinkExe -nogui 1 -CommandFile flash.jlink 1>/dev/null && echo SUCCESS || echo FAIL"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "group": "build"
+        }
+    ]
+}
