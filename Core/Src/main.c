@@ -98,24 +98,24 @@ int main(void) {
     SEGGER_RTT_Init();
     uint8_t str[10];
     NTS_ConvFakeFloatI(-12345, 2, str);
-    SEGGER_RTT_printf(0, (char *)str);
-    SEGGER_RTT_printf(0, "\n");
+    SEGGER_RTT_WriteString(0, (char *)str);
+    SEGGER_RTT_WriteString(0, "\n");
 
     NTS_ConvFakeFloatI(-1234, 2, str);
-    SEGGER_RTT_printf(0, (char *)str);
-    SEGGER_RTT_printf(0, "\n");
+    SEGGER_RTT_WriteString(0, (char *)str);
+    SEGGER_RTT_WriteString(0, "\n");
 
     NTS_ConvFakeFloatI(-123, 2, str);
-    SEGGER_RTT_printf(0, (char *)str);
-    SEGGER_RTT_printf(0, "\n");
+    SEGGER_RTT_WriteString(0, (char *)str);
+    SEGGER_RTT_WriteString(0, "\n");
 
     NTS_ConvFakeFloatI(-12, 2, str);
-    SEGGER_RTT_printf(0, (char *)str);
-    SEGGER_RTT_printf(0, "\n");
+    SEGGER_RTT_WriteString(0, (char *)str);
+    SEGGER_RTT_WriteString(0, "\n");
 
     NTS_ConvFakeFloatI(-1, 2, str);
-    SEGGER_RTT_printf(0, (char *)str);
-    SEGGER_RTT_printf(0, "\n");
+    SEGGER_RTT_WriteString(0, (char *)str);
+    SEGGER_RTT_WriteString(0, "\n");
     /* USER CODE END 2 */
 
     /* Infinite loop */
