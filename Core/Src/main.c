@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "SEGGER_RTT.h"
+#include "cmsis_gcc.h"
 #include "nts.h"
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx_hal_gpio.h"
@@ -97,32 +98,39 @@ int main(void) {
     /* USER CODE BEGIN 2 */
     SEGGER_RTT_Init();
     uint8_t str[10];
-    NTS_ConvFakeFloatI(-12345, 2, str);
-    SEGGER_RTT_WriteString(0, (char *)str);
-    SEGGER_RTT_WriteString(0, "\n");
 
-    NTS_ConvFakeFloatI(-1234, 2, str);
-    SEGGER_RTT_WriteString(0, (char *)str);
-    SEGGER_RTT_WriteString(0, "\n");
+    if (NTS_ConvFixFakeFloatU(1, 6, 4, str) == NTS_OK) {
+        SEGGER_RTT_WriteString(0, (char *)str);
+        SEGGER_RTT_WriteString(0, "\n");
+    }
 
-    NTS_ConvFakeFloatI(-123, 2, str);
-    SEGGER_RTT_WriteString(0, (char *)str);
-    SEGGER_RTT_WriteString(0, "\n");
+    if (NTS_ConvFixFakeFloatU(1, 5, 3, str) == NTS_OK) {
+        SEGGER_RTT_WriteString(0, (char *)str);
+        SEGGER_RTT_WriteString(0, "\n");
+    }
 
-    NTS_ConvFakeFloatI(-12, 2, str);
-    SEGGER_RTT_WriteString(0, (char *)str);
-    SEGGER_RTT_WriteString(0, "\n");
+    if (NTS_ConvFixFakeFloatU(1, 4, 2, str) == NTS_OK) {
+        SEGGER_RTT_WriteString(0, (char *)str);
+        SEGGER_RTT_WriteString(0, "\n");
+    }
 
-    NTS_ConvFakeFloatI(-1, 2, str);
-    SEGGER_RTT_WriteString(0, (char *)str);
-    SEGGER_RTT_WriteString(0, "\n");
+    if (NTS_ConvFixFakeFloatU(1, 3, 1, str) == NTS_OK) {
+        SEGGER_RTT_WriteString(0, (char *)str);
+        SEGGER_RTT_WriteString(0, "\n");
+    }
+
+    if (NTS_ConvFixFakeFloatU(1, 2, 5, str) == NTS_OK) {
+        SEGGER_RTT_WriteString(0, (char *)str);
+        SEGGER_RTT_WriteString(0, "\n");
+    }
+    __NOP();
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while (1) {
-        HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-        HAL_Delay(1000);
+        // HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+        // HAL_Delay(1000);
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */

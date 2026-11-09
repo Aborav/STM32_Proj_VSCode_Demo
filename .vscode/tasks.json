@@ -8,8 +8,8 @@
             "command": "clang-tidy",
             "args": [
                 "-p",
-                "${workspaceFolder}/build/Debug/",
-                "${workspaceFolder}/Core/Src/main.c"
+                "${workspaceFolder}/Core/Src/main.c",
+                "${workspaceFolder}/UsrLibs/NumToStr/nts.c"
                 //"${workspaceFolder}/UsrLibs/../*.c"
             ],
             "group": {
